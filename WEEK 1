@@ -1,0 +1,15 @@
+/* Question 1 - Get the longest distance */
+select flight, origin, dest, distance 
+from flights.flights 
+where distance in 
+(select max(distance) from flights.flights)
+group by flight, origin, dest;
+
+/* Question 2 - Get the different numbers of engines 
+and get the aircraft which has the most number of seats 
+in each number of engines */
+select engine,engines, max(seats)
+from flights.planes
+group by engines, engines;
+
+/* Question 3 -
